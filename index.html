@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Olivia Gough — Physicist &amp; Machine Learning Engineer</title>
+<meta name="description" content="Olivia Gough — physicist and machine learning engineer. Physics-based modelling for energy systems, open-source scientific software, and condensed-matter research." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Newsreader:ital,opsz@0,6..72;1,6..72&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --bg: #fbfbf9;
+    --surface: #ffffff;
+    --ink: #1a1a1a;
+    --ink-soft: #555;
+    --line: #e6e4df;
+    --accent: #2f5d50;
+    --accent-soft: #eaf1ee;
+    --radius: 14px;
+    --maxw: 880px;
+    --shadow: 0 1px 2px rgba(0,0,0,.04), 0 8px 24px rgba(0,0,0,.05);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #14130f;
+      --surface: #1d1c18;
+      --ink: #f2f0ea;
+      --ink-soft: #b3b0a8;
+      --line: #322f29;
+      --accent: #8fd0bd;
+      --accent-soft: #20302b;
+      --shadow: 0 1px 2px rgba(0,0,0,.3), 0 8px 24px rgba(0,0,0,.35);
+    }
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    font-family: "Inter", system-ui, -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 24px; }
+
+  /* Nav */
+  nav {
+    position: sticky; top: 0; z-index: 10;
+    background: color-mix(in srgb, var(--bg) 88%, transparent);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--line);
+  }
+  nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 60px; }
+  nav .brand { font-weight: 700; letter-spacing: -.01em; }
+  nav .links { display: flex; gap: 22px; }
+  nav .links a { color: var(--ink-soft); font-size: 14px; font-weight: 500; }
+  nav .links a:hover { color: var(--accent); text-decoration: none; }
+  @media (max-width: 560px) { nav .links { gap: 14px; } nav .links a { font-size: 13px; } }
+
+  /* Hero */
+  header.hero { padding: 72px 0 40px; }
+  .hero-grid { display: flex; gap: 36px; align-items: center; }
+  @media (max-width: 640px) { .hero-grid { flex-direction: column; text-align: center; gap: 22px; } }
+  .avatar {
+    width: 132px; height: 132px; border-radius: 50%; object-fit: cover;
+    border: 3px solid var(--surface); box-shadow: var(--shadow); flex-shrink: 0;
+    background: var(--accent-soft);
+  }
+  .hero h1 { font-size: clamp(28px, 5vw, 40px); margin: 0 0 6px; letter-spacing: -.02em; font-weight: 700; }
+  .hero .tagline { font-size: 18px; color: var(--ink-soft); margin: 0 0 16px; }
+  .hero .intro { font-family: "Newsreader", Georgia, serif; font-size: 18px; max-width: 56ch; color: var(--ink); margin: 0 0 18px; }
+  .pills { display: flex; flex-wrap: wrap; gap: 10px; }
+  @media (max-width: 640px) { .pills { justify-content: center; } }
+  .pill {
+    display: inline-flex; align-items: center; gap: 7px;
+    padding: 7px 14px; border-radius: 999px; font-size: 13.5px; font-weight: 500;
+    background: var(--surface); border: 1px solid var(--line); color: var(--ink); box-shadow: var(--shadow);
+  }
+  .pill:hover { text-decoration: none; border-color: var(--accent); }
+
+  /* Sections */
+  section { padding: 40px 0; border-top: 1px solid var(--line); }
+  section h2 {
+    font-size: 13px; text-transform: uppercase; letter-spacing: .12em;
+    color: var(--accent); font-weight: 700; margin: 0 0 24px;
+  }
+  .lead { font-family: "Newsreader", Georgia, serif; font-size: 19px; max-width: 62ch; }
+
+  /* Cards */
+  .card {
+    background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
+    padding: 22px 24px; margin-bottom: 16px; box-shadow: var(--shadow); transition: transform .15s ease, border-color .15s ease;
+  }
+  .card:hover { transform: translateY(-2px); border-color: color-mix(in srgb, var(--accent) 40%, var(--line)); }
+  .card h3 { margin: 0 0 6px; font-size: 18px; letter-spacing: -.01em; }
+  .card .meta { font-size: 13.5px; color: var(--ink-soft); margin: 0 0 10px; }
+  .card p { margin: 0 0 12px; color: var(--ink); }
+  .card p:last-child { margin-bottom: 0; }
+  .tags { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 4px; }
+  .tag { font-size: 12px; padding: 3px 9px; border-radius: 6px; background: var(--accent-soft); color: var(--accent); font-weight: 500; }
+  .card-links { display: flex; gap: 16px; font-size: 14px; font-weight: 500; margin-top: 4px; }
+
+  /* Publications list */
+  ol.pubs { list-style: none; counter-reset: pub; padding: 0; margin: 0; }
+  ol.pubs li {
+    position: relative; padding: 0 0 18px 40px; margin-bottom: 18px; border-bottom: 1px solid var(--line);
+  }
+  ol.pubs li:last-child { border-bottom: none; margin-bottom: 0; }
+  ol.pubs li::before {
+    counter-increment: pub; content: counter(pub);
+    position: absolute; left: 0; top: 0;
+    width: 26px; height: 26px; border-radius: 50%;
+    background: var(--accent-soft); color: var(--accent);
+    font-size: 13px; font-weight: 700; display: grid; place-items: center;
+  }
+  .pub-title { font-weight: 600; }
+  .pub-meta { color: var(--ink-soft); font-size: 14px; }
+  .pub-group { font-size: 13px; text-transform: uppercase; letter-spacing: .08em; color: var(--ink-soft); font-weight: 600; margin: 26px 0 14px; }
+  .pub-group:first-of-type { margin-top: 0; }
+
+  /* CTA / resume */
+  .cta {
+    display: inline-flex; align-items: center; gap: 9px;
+    background: var(--accent); color: #fff; padding: 12px 22px; border-radius: 10px;
+    font-weight: 600; font-size: 15px; box-shadow: var(--shadow);
+  }
+  @media (prefers-color-scheme: dark) { .cta { color: #11201b; } }
+  .cta:hover { text-decoration: none; opacity: .92; }
+
+  /* Highlight strip */
+  .highlights { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 8px; }
+  @media (max-width: 640px) { .highlights { grid-template-columns: 1fr; } }
+  .hl { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 18px 20px; box-shadow: var(--shadow); }
+  .hl .n { font-size: 26px; font-weight: 700; letter-spacing: -.02em; color: var(--accent); }
+  .hl .t { font-size: 14px; color: var(--ink-soft); margin-top: 2px; }
+
+  footer { padding: 40px 0 60px; border-top: 1px solid var(--line); color: var(--ink-soft); font-size: 14px; text-align: center; }
+  footer a { color: var(--ink-soft); }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <span class="brand">Olivia Gough</span>
+    <div class="links">
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#publications">Publications</a>
+      <a href="#resume">CV</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ============================== HERO ============================== -->
+<header class="hero">
+  <div class="wrap hero-grid">
+    <!-- Drop a square photo named headshot.jpg into the repo to show it here. -->
+    <img class="avatar" src="headshot.jpg" alt="Portrait of Olivia Gough"
+         onerror="this.style.display='none'" />
+    <div>
+      <h1>Olivia Gough</h1>
+      <p class="tagline">Physicist &amp; Machine Learning Engineer</p>
+      <p class="intro">
+        I turn complex physical systems into predictive, decision-support tools in production
+        code. At Electio I model energy-production systems and own the optimisation
+        recommendations delivered to customers — built on a condensed-matter PhD from Oxford
+        and open-source scientific software now used as standard by research groups worldwide.
+      </p>
+      <div class="pills">
+        <a class="pill" href="https://github.com/omgough" target="_blank" rel="noopener">GitHub</a>
+        <a class="pill" href="https://linkedin.com/in/olivia-gough" target="_blank" rel="noopener">LinkedIn</a>
+        <!-- EDIT: paste your exact Google Scholar profile URL below -->
+        <a class="pill" href="https://scholar.google.com/" target="_blank" rel="noopener">Google Scholar</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ============================== ABOUT ============================== -->
+<section id="about">
+  <div class="wrap">
+    <h2>About</h2>
+    <p class="lead" style="margin-bottom: 26px;">
+      I'm a physicist and machine learning engineer working at the intersection of physical
+      modelling and production software. My condensed-matter PhD at Oxford focused on the
+      microstructure of organic semiconductors characterised by synchrotron X-ray techniques,
+      where I led large-facility beamtimes and authored open-source research software adopted
+      as standard by groups at Oxford, Imperial, Sheffield, the ESRF, and Lawrence Berkeley
+      National Laboratory. I now apply that same physical-modelling, scientific-software, and
+      large-dataset expertise to energy-systems products at Electio.
+    </p>
+    <div class="highlights">
+      <div class="hl"><div class="n">8/8</div><div class="t">Beamtime proposals accepted as investigative lead</div></div>
+      <div class="hl"><div class="n">5+</div><div class="t">Peer-reviewed publications</div></div>
+      <div class="hl"><div class="n">6</div><div class="t">Research groups &amp; facilities using my software</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== PROJECTS ============================== -->
+<section id="projects">
+  <div class="wrap">
+    <h2>Selected Work</h2>
+
+    <div class="card">
+      <h3>giwaxs-analysis</h3>
+      <p class="meta">Author · Open-source Python package</p>
+      <p>
+        Python tools for GIWAXS data processing built on pyFAI and fabio: calibration,
+        1D/sector/cake integration, in situ heatmaps, peak fitting, and Scherrer
+        crystallite-size analysis. Properly engineered and maintained — packaged, tested,
+        documented, MIT-licensed, with a CITATION.cff for citable reuse.
+      </p>
+      <p>
+        <strong>Adopted as standard</strong> by groups working on in situ GIWAXS: the Riede
+        group (Oxford), Heutz group (Imperial), University of Sheffield, the ESRF, and the
+        Su Materials Lab (Lawrence Berkeley National Laboratory).
+      </p>
+      <div class="tags">
+        <span class="tag">Python</span>
+        <span class="tag">pyFAI</span>
+        <span class="tag">fabio</span>
+        <span class="tag">X-ray scattering</span>
+      </div>
+      <div class="card-links">
+        <a href="https://github.com/omgough/giwaxs-analysis" target="_blank" rel="noopener">Source ↗</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>giwaxs_toolbox</h3>
+      <p class="meta">Contributor / co-author · Official Diamond Light Source toolbox (beamline I07)</p>
+      <p>
+        Python tools for visualising and analysing GIWAXS data collected on Diamond Light
+        Source beamline I07, with interactive widgets for exploring in situ datasets and
+        extracting 1D profiles. A maintained, facility-grade package: src-layout, unit tests,
+        GitHub Actions CI, Sphinx documentation with training videos, and containerised
+        (Docker) deployment on the Diamond filesystem for beamline users.
+      </p>
+      <div class="tags">
+        <span class="tag">Python</span>
+        <span class="tag">CI/CD</span>
+        <span class="tag">Docker</span>
+        <span class="tag">Sphinx</span>
+      </div>
+      <div class="card-links">
+        <a href="https://github.com/DiamondLightSource/giwaxs_toolbox" target="_blank" rel="noopener">Source ↗</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Energy-production optimisation at Electio</h3>
+      <p class="meta">Machine Learning Engineer · 2026 – present</p>
+      <p>
+        Physics-based models of complex energy-production systems turned into predictive,
+        decision-support tools in production code. I developed a nodal-analysis and
+        multiphase-flow model for production optimisation and integrated its predictions as
+        physically-grounded features into a machine-learning model. I own the optimisation
+        recommendations delivered to customers (e.g. gas-injection strategy), derived from
+        historical operating data and model output.
+      </p>
+      <div class="tags">
+        <span class="tag">Physical modelling</span>
+        <span class="tag">Machine learning</span>
+        <span class="tag">Production code</span>
+        <span class="tag">Data pipelines</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== PUBLICATIONS ============================== -->
+<section id="publications">
+  <div class="wrap">
+    <h2>Publications &amp; Talks</h2>
+
+    <!-- EDIT: where a paper has a public DOI/link, wrap the title in
+         <a href="DOI_URL" ...>...</a>. Add citation counts after each if you have them. -->
+
+    <p class="pub-group">Peer-reviewed journal articles</p>
+    <ol class="pubs">
+      <li>
+        <span class="pub-title">Low-voltage-loss vacuum thermally evaporated BHJ organic solar cells with DCV3T as non-fullerene acceptor.</span>
+        <span class="pub-meta"> Zhu, M., Tsokkou, D., <strong>Gough, O.</strong>, Trinkaus, K., Evans, N., Kaienburg, P., Meerholz, K., Olthof, S., Banerji, N. &amp; Riede, M. <em>Journal of Physics D: Applied Physics</em>, in press (2026).</span>
+      </li>
+      <li>
+        <span class="pub-title">In situ growth studies of vacuum-thermally evaporated films using ellagic acid templating for organic photovoltaics.</span>
+        <span class="pub-meta"> <strong>Gough, O.</strong>, Trinkaus, K., Kaienburg, P., Li, Z., Lauritzen, A.E., Rawle, J., Norris, H., Hilfiker, J., Smith, J., Veneri, A., Su, G.M. &amp; Riede, M. <em>Organic Electronics</em> 156, 107445 (2026).</span>
+      </li>
+      <li>
+        <span class="pub-title">The influence of alkyl spacers and molecular weight on the charge transport and storage properties of oxy-bithiophene-based conjugated polymers.</span>
+        <span class="pub-meta"> Yu, H., Marks, A., Tuladhar, S.M., Siemons, N., Anderson, I., Bidinger, S., Keene, S.T., Quill, T.J., Wu, R., <strong>Gough, O.</strong>, et al. <em>Angewandte Chemie International Edition</em> 64, e202417897 (2025).</span>
+      </li>
+      <li>
+        <span class="pub-title">The role of the organic cation in developing efficient green perovskite LEDs based on quasi-2D perovskite heterostructures.</span>
+        <span class="pub-meta"> Ramadan, A.J., Jeong, W.H., Oliver, R.D.J., Jiang, J., Dasgupta, A., Yuan, Z., Smith, J., Lee, J.E., Motti, S.G., <strong>Gough, O.</strong>, et al. <em>Advanced Functional Materials</em> (2024).</span>
+      </li>
+      <li>
+        <span class="pub-title">Vacuum-deposited organic solar cells with BTIC-H as an A–D–A non-fullerene acceptor.</span>
+        <span class="pub-meta"> Habib, I., Kaienburg, P., Xia, D., <strong>Gough, O.</strong>, et al. <em>APL Materials</em> (2023).</span>
+      </li>
+    </ol>
+
+    <p class="pub-group">In preparation</p>
+    <ol class="pubs">
+      <li>
+        <span class="pub-title">Small-angle neutron scattering to evaluate the impact of annealing on small-molecule bulk heterojunctions for organic photovoltaics.</span>
+        <span class="pub-meta"> <strong>Gough, O.</strong>, Lauritzen, A.E., Kaienburg, P., Dalgliesh, R. &amp; Riede, M. Manuscript in preparation (2025).</span>
+      </li>
+    </ol>
+
+    <p class="pub-group">Conference presentations</p>
+    <ol class="pubs">
+      <li>
+        <span class="pub-title">In situ growth observations of vacuum thermally evaporated films with ellagic acid as a templating layer for organic photovoltaics.</span>
+        <span class="pub-meta"> <strong>Gough, O.</strong>, Trinkaus, K., Kaienburg, P., Su, G. &amp; Riede, M. <em>MRS Spring</em> (2025).</span>
+      </li>
+      <li>
+        <span class="pub-title">Tuning the microstructure of organic photovoltaics using rylene-dye-derivative templating layers with X-ray characterisation techniques.</span>
+        <span class="pub-meta"> <strong>Gough, O.</strong>, Trinkaus, K., Kaienburg, P., Su, G. &amp; Riede, M. <em>MRS Spring</em> (2025).</span>
+      </li>
+      <li>
+        <span class="pub-title">In situ microstructural observations of vacuum-thermally-evaporated organic thin-film growth with ellagic acid as a templating layer.</span>
+        <span class="pub-meta"> <strong>Gough, O.</strong>, Lauritzen, A.E., Li, Z., Huss-Hansen, M. &amp; Riede, M. <em>SNI22</em>, Berlin (2022).</span>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- ============================== RESUME ============================== -->
+<section id="resume">
+  <div class="wrap">
+    <h2>CV &amp; Recognition</h2>
+    <p class="lead" style="margin-bottom:22px;">
+      Selected highlights: Advanced Light Source Doctoral Fellowship in Residence (LBNL),
+      awarded two consecutive years; Oxford–Wolfson–Marriott Condensed Matter Physics Graduate
+      Scholarship; UKRI doctoral studentship. PhD, University of Oxford; MRes (Distinction),
+      Imperial College London; BSc Physics (First Class Honours), Queen Mary University of London.
+    </p>
+    <a class="cta" href="resume.pdf" target="_blank" rel="noopener">Download full CV (PDF) ↓</a>
+  </div>
+</section>
+
+<!-- ============================== CONTACT ============================== -->
+<section id="contact">
+  <div class="wrap">
+    <h2>Contact</h2>
+    <p class="lead">
+      The best way to reach me is on
+      <a href="https://linkedin.com/in/olivia-gough" target="_blank" rel="noopener">LinkedIn</a>.
+      My code is on <a href="https://github.com/omgough" target="_blank" rel="noopener">GitHub</a>
+      and my publications on
+      <a href="https://scholar.google.com/" target="_blank" rel="noopener">Google Scholar</a>.
+    </p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    © <span id="year"></span> Olivia Gough.
+  </div>
+</footer>
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
