@@ -111,6 +111,13 @@
   .figure img { display: block; width: 100%; height: auto; }
   .figure figcaption { font-family: var(--mono); font-size: 11px; line-height: 1.5; color: var(--ink-soft); padding: 9px 12px; border-top: 1px solid var(--line); }
 
+  /* Image gallery */
+  .gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 18px; }
+  @media (max-width: 640px) { .gallery { grid-template-columns: repeat(2, 1fr); } }
+  .gallery a { display: block; aspect-ratio: 1 / 1; overflow: hidden; border: 1px solid var(--line); }
+  .gallery img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .35s ease; }
+  .gallery a:hover img { transform: scale(1.05); }
+
   /* Publications */
   ol.pubs { list-style: none; counter-reset: pub; padding: 0; margin: 0; }
   ol.pubs li {
@@ -291,20 +298,42 @@
       <p>
         A creative-coding experiment at the meeting point of art and science. Inspired by
         Richard Taylor's work on the fractal signature of Jackson Pollock's drip paintings,
-        I built a configurable pendulum simulation — choose the number of arms, the colours,
-        the starting points and the random seed — that scatters its trajectories across a
-        canvas to emulate a Pollock, then measures the fractal dimension of the result.
+        I built a configurable pendulum simulation. You can set the number of arms, the
+        colours, the starting points and the random seed, then scatter the resulting
+        trajectories across a canvas to emulate a Pollock and measure its fractal dimension.
       </p>
       <p>
-        With several arms swinging under gravity, the motion is deeply chaotic: nudge a
-        starting angle by a hair and the path diverges completely, so no two runs paint the
-        same picture — hence the name.
+        With several arms swinging under gravity, the motion becomes deeply chaotic. Nudge a
+        starting angle by a hair and the path diverges completely, so no two runs ever paint
+        the same picture. That is where the name comes from.
       </p>
       <figure class="figure">
         <img src="pollock.gif" alt="Animated multi-arm pendulum simulation tracing a chaotic path across a canvas" loading="lazy" />
         <figcaption>A pendulum traces its path; many of these, scattered across a canvas, make a simulated Pollock.</figcaption>
       </figure>
       <p class="stack">Python · NumPy · matplotlib</p>
+    </div>
+
+    <div class="entry">
+      <div class="entry-head">
+        <h3>Origami</h3>
+      </div>
+      <p class="meta">Folded paper · Tessellations, corrugations &amp; modular forms</p>
+      <p>
+        The same instinct for structure, applied to paper. I fold tessellations, corrugations
+        and modular forms: geometric work where a pattern of creases does all of the design.
+        It scratches the same itch as the rest of this page, the place where mathematics and
+        art meet. I take a lot of inspiration from Ruth Asawa, whose folded and looped forms
+        turn simple rules into something organic.
+      </p>
+      <div class="gallery">
+        <a href="origami/origami-tessellations.jpg" target="_blank" rel="noopener"><img src="origami/origami-tessellations.jpg" alt="Colourful folded-paper tessellations and corrugations" loading="lazy" /></a>
+        <a href="origami/origami-modular.jpg" target="_blank" rel="noopener"><img src="origami/origami-modular.jpg" alt="A collection of modular origami and tessellated paper forms" loading="lazy" /></a>
+        <a href="origami/origami-shells.jpg" target="_blank" rel="noopener"><img src="origami/origami-shells.jpg" alt="Spiral-folded paper shells in blue and grey" loading="lazy" /></a>
+        <a href="origami/origami-stars.jpg" target="_blank" rel="noopener"><img src="origami/origami-stars.jpg" alt="Colourful modular origami star units" loading="lazy" /></a>
+        <a href="origami/origami-garland.jpg" target="_blank" rel="noopener"><img src="origami/origami-garland.jpg" alt="A garland of modular origami cubes on a string" loading="lazy" /></a>
+        <a href="origami/origami-corrugation.jpg" target="_blank" rel="noopener"><img src="origami/origami-corrugation.jpg" alt="An orange triangular-grid paper corrugation held in hand" loading="lazy" /></a>
+      </div>
     </div>
   </div>
 </section>
