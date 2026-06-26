@@ -7,30 +7,27 @@
 <meta name="description" content="Olivia Gough — physicist and machine learning engineer. Physics-based modelling for energy systems, open-source scientific software, and condensed-matter research." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Newsreader:ital,opsz@0,6..72;1,6..72&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Newsreader:ital,opsz@0,6..72;1,6..72&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
 <style>
   :root {
-    --bg: #fbfbf9;
-    --surface: #ffffff;
-    --ink: #1a1a1a;
-    --ink-soft: #555;
-    --line: #e6e4df;
-    --accent: #2f5d50;
-    --accent-soft: #eaf1ee;
-    --radius: 14px;
-    --maxw: 880px;
-    --shadow: 0 1px 2px rgba(0,0,0,.04), 0 8px 24px rgba(0,0,0,.05);
+    --bg: #fcfbf7;
+    --ink: #1a1815;
+    --ink-soft: #75716a;
+    --line: #e7e3d9;
+    --accent: #b9522d;
+    --accent-soft: #f3e7df;
+    --maxw: 840px;
+    --mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+    --serif: "Newsreader", Georgia, serif;
   }
   @media (prefers-color-scheme: dark) {
     :root {
-      --bg: #14130f;
-      --surface: #1d1c18;
-      --ink: #f2f0ea;
-      --ink-soft: #b3b0a8;
-      --line: #322f29;
-      --accent: #8fd0bd;
-      --accent-soft: #20302b;
-      --shadow: 0 1px 2px rgba(0,0,0,.3), 0 8px 24px rgba(0,0,0,.35);
+      --bg: #161311;
+      --ink: #f1ede5;
+      --ink-soft: #a09a8f;
+      --line: #33302a;
+      --accent: #dd7d50;
+      --accent-soft: #2a2017;
     }
   }
   * { box-sizing: border-box; }
@@ -45,121 +42,115 @@
   }
   a { color: var(--accent); text-decoration: none; }
   a:hover { text-decoration: underline; }
-  .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 24px; }
+  .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 28px; }
 
   /* Nav */
   nav {
     position: sticky; top: 0; z-index: 10;
-    background: color-mix(in srgb, var(--bg) 88%, transparent);
-    backdrop-filter: blur(10px);
+    background: color-mix(in srgb, var(--bg) 90%, transparent);
+    backdrop-filter: blur(8px);
     border-bottom: 1px solid var(--line);
   }
-  nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 60px; }
-  nav .brand { font-weight: 700; letter-spacing: -.01em; }
-  nav .links { display: flex; gap: 22px; }
-  nav .links a { color: var(--ink-soft); font-size: 14px; font-weight: 500; }
+  nav .wrap { display: flex; align-items: center; justify-content: space-between; min-height: 58px; gap: 14px; flex-wrap: wrap; }
+  nav .brand { font-family: var(--mono); font-size: 12px; letter-spacing: .04em; text-transform: uppercase; font-weight: 500; }
+  nav .links { display: flex; gap: 18px; flex-wrap: wrap; }
+  nav .links a { font-family: var(--mono); color: var(--ink-soft); font-size: 11px; letter-spacing: .05em; text-transform: uppercase; }
   nav .links a:hover { color: var(--accent); text-decoration: none; }
-  @media (max-width: 560px) { nav .links { gap: 14px; } nav .links a { font-size: 13px; } }
+  @media (max-width: 560px) { nav .links { gap: 12px; } }
 
   /* Hero */
-  header.hero { padding: 72px 0 40px; }
-  .hero-grid { display: flex; gap: 36px; align-items: center; }
-  @media (max-width: 640px) { .hero-grid { flex-direction: column; text-align: center; gap: 22px; } }
+  header.hero { padding: 64px 0 36px; }
+  .hero-grid { display: flex; gap: 32px; align-items: flex-start; }
+  @media (max-width: 640px) { .hero-grid { flex-direction: column; gap: 22px; } }
   .avatar {
-    width: 132px; height: 132px; border-radius: 50%; object-fit: cover;
-    border: 3px solid var(--surface); box-shadow: var(--shadow); flex-shrink: 0;
-    background: var(--accent-soft);
+    width: 116px; height: 116px; object-fit: cover;
+    border: 1px solid var(--line); flex-shrink: 0; background: var(--accent-soft);
   }
-  .hero h1 { font-size: clamp(28px, 5vw, 40px); margin: 0 0 6px; letter-spacing: -.02em; font-weight: 700; }
-  .hero .tagline { font-size: 18px; color: var(--ink-soft); margin: 0 0 16px; }
-  .hero .intro { font-family: "Newsreader", Georgia, serif; font-size: 18px; max-width: 56ch; color: var(--ink); margin: 0 0 18px; }
-  .pills { display: flex; flex-wrap: wrap; gap: 10px; }
-  @media (max-width: 640px) { .pills { justify-content: center; } }
-  .pill {
-    display: inline-flex; align-items: center; gap: 7px;
-    padding: 7px 14px; border-radius: 999px; font-size: 13.5px; font-weight: 500;
-    background: var(--surface); border: 1px solid var(--line); color: var(--ink); box-shadow: var(--shadow);
-  }
-  .pill:hover { text-decoration: none; border-color: var(--accent); }
+  .hero h1 { font-size: clamp(30px, 5.5vw, 42px); margin: 0 0 8px; letter-spacing: -.025em; font-weight: 600; line-height: 1.05; }
+  .hero .tagline { font-size: 16px; color: var(--ink-soft); margin: 0 0 16px; }
+  .hero .intro { font-family: var(--serif); font-size: 18px; line-height: 1.6; max-width: 56ch; margin: 0 0 20px; }
+  .hero-links { display: flex; flex-wrap: wrap; gap: 20px; font-family: var(--mono); font-size: 12px; }
+  .hero-links a { color: var(--ink-soft); letter-spacing: .02em; }
+  .hero-links a:hover { color: var(--accent); text-decoration: none; }
+  .hero-links .ar { color: var(--accent); }
 
   /* Sections */
-  section { padding: 40px 0; border-top: 1px solid var(--line); }
-  section h2 {
-    font-size: 13px; text-transform: uppercase; letter-spacing: .12em;
-    color: var(--accent); font-weight: 700; margin: 0 0 24px;
+  section { padding: 46px 0; border-top: 1px solid var(--line); }
+  .sec {
+    font-family: var(--mono); font-size: 12px; letter-spacing: .08em; text-transform: uppercase;
+    color: var(--ink-soft); font-weight: 500; margin: 0 0 28px;
   }
-  .lead { font-family: "Newsreader", Georgia, serif; font-size: 19px; max-width: 62ch; }
+  .sec .num { color: var(--accent); }
+  .lead { font-family: var(--serif); font-size: 19px; line-height: 1.6; max-width: 62ch; }
 
-  /* Cards */
-  .card {
-    background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
-    padding: 22px 24px; margin-bottom: 16px; box-shadow: var(--shadow); transition: transform .15s ease, border-color .15s ease;
+  /* Stat strip */
+  .stats { display: flex; flex-wrap: wrap; margin-top: 28px; }
+  .stat { padding: 0 30px; border-left: 1px solid var(--line); text-decoration: none; }
+  .stat:first-child { padding-left: 0; border-left: none; }
+  .stat .n { font-size: 26px; font-weight: 600; letter-spacing: -.02em; color: var(--accent); }
+  .stat .t { font-family: var(--mono); font-size: 10.5px; letter-spacing: .06em; text-transform: uppercase; color: var(--ink-soft); margin-top: 4px; }
+  a.stat:hover .n { text-decoration: underline; }
+  @media (max-width: 560px) {
+    .stats { flex-direction: column; }
+    .stat { padding: 14px 0; border-left: none; border-top: 1px solid var(--line); }
+    .stat:first-child { border-top: none; padding-top: 0; }
   }
-  .card:hover { transform: translateY(-2px); border-color: color-mix(in srgb, var(--accent) 40%, var(--line)); }
-  .card h3 { margin: 0 0 6px; font-size: 18px; letter-spacing: -.01em; }
-  .card .meta { font-size: 13.5px; color: var(--ink-soft); margin: 0 0 10px; }
-  .card p { margin: 0 0 12px; color: var(--ink); }
-  .card p:last-child { margin-bottom: 0; }
-  .tags { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 4px; }
-  .tag { font-size: 12px; padding: 3px 9px; border-radius: 6px; background: var(--accent-soft); color: var(--accent); font-weight: 500; }
-  .card-links { display: flex; gap: 16px; font-size: 14px; font-weight: 500; margin-top: 4px; }
 
-  /* Publications list */
+  /* Entries (work / projects) */
+  .entry { border-top: 1px solid var(--line); padding: 26px 0; }
+  .entry-head { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; }
+  .entry-head h3 { margin: 0; font-size: 18px; font-weight: 600; letter-spacing: -.01em; }
+  .entry-head .src { font-family: var(--mono); font-size: 11px; white-space: nowrap; }
+  .entry .meta { font-family: var(--mono); font-size: 11px; letter-spacing: .03em; text-transform: uppercase; color: var(--ink-soft); margin: 7px 0 13px; }
+  .entry p { margin: 0 0 12px; max-width: 66ch; }
+  .entry p:last-child { margin-bottom: 0; }
+  .stack { font-family: var(--mono); font-size: 11.5px; color: var(--ink-soft); margin-top: 12px; }
+
+  /* Figure (gif) */
+  .figure { margin: 18px 0 0; border: 1px solid var(--line); background: var(--accent-soft); max-width: 440px; }
+  .figure img { display: block; width: 100%; height: auto; }
+  .figure figcaption { font-family: var(--mono); font-size: 11px; line-height: 1.5; color: var(--ink-soft); padding: 9px 12px; border-top: 1px solid var(--line); }
+
+  /* Publications */
   ol.pubs { list-style: none; counter-reset: pub; padding: 0; margin: 0; }
   ol.pubs li {
-    position: relative; padding: 0 0 18px 40px; margin-bottom: 18px; border-bottom: 1px solid var(--line);
+    position: relative; counter-increment: pub;
+    padding: 14px 0 14px 40px; border-top: 1px solid var(--line);
   }
-  ol.pubs li:last-child { border-bottom: none; margin-bottom: 0; }
   ol.pubs li::before {
-    counter-increment: pub; content: counter(pub);
-    position: absolute; left: 0; top: 0;
-    width: 26px; height: 26px; border-radius: 50%;
-    background: var(--accent-soft); color: var(--accent);
-    font-size: 13px; font-weight: 700; display: grid; place-items: center;
+    content: counter(pub, decimal-leading-zero);
+    position: absolute; left: 0; top: 16px;
+    font-family: var(--mono); font-size: 11px; color: var(--accent);
   }
   .pub-title { font-weight: 600; }
   .pub-meta { color: var(--ink-soft); font-size: 14px; }
-  .pub-group { font-size: 13px; text-transform: uppercase; letter-spacing: .08em; color: var(--ink-soft); font-weight: 600; margin: 26px 0 14px; }
+  .pub-group { font-family: var(--mono); font-size: 11px; letter-spacing: .07em; text-transform: uppercase; color: var(--ink-soft); margin: 30px 0 6px; }
   .pub-group:first-of-type { margin-top: 0; }
 
-  /* CTA / resume */
+  /* Recognition */
+  .feature { border: 1px solid var(--line); background: var(--accent-soft); padding: 24px 26px; }
+  .feature .eyebrow { font-family: var(--mono); font-size: 11px; letter-spacing: .07em; text-transform: uppercase; color: var(--accent); margin: 0 0 10px; }
+  .feature h3 { margin: 0 0 12px; font-size: 19px; font-weight: 600; letter-spacing: -.01em; line-height: 1.3; }
+  .feature p { margin: 0; max-width: 70ch; }
+  .rec-row { border-top: 1px solid var(--line); padding: 22px 0; }
+  .rec-row:first-of-type { border-top: none; padding-top: 24px; }
+  .rec-label { font-family: var(--mono); font-size: 11px; letter-spacing: .05em; text-transform: uppercase; color: var(--accent); margin-bottom: 10px; }
+  .rec-row p { margin: 0 0 10px; max-width: 68ch; }
+  .rec-row p:last-child { margin-bottom: 0; }
+
+  /* CV button */
   .cta {
-    display: inline-flex; align-items: center; gap: 9px;
-    background: var(--accent); color: #fff; padding: 12px 22px; border-radius: 10px;
-    font-weight: 600; font-size: 15px; box-shadow: var(--shadow);
+    display: inline-flex; align-items: center; gap: 8px;
+    font-family: var(--mono); font-size: 12px; letter-spacing: .04em; text-transform: uppercase;
+    color: var(--accent); border: 1px solid var(--accent); padding: 12px 20px;
+    transition: background .15s ease, color .15s ease;
   }
-  @media (prefers-color-scheme: dark) { .cta { color: #11201b; } }
-  .cta:hover { text-decoration: none; opacity: .92; }
+  .cta:hover { background: var(--accent); color: var(--bg); text-decoration: none; }
 
-  /* Highlight strip */
-  .highlights { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 8px; }
-  @media (max-width: 640px) { .highlights { grid-template-columns: 1fr; } }
-  .hl { display: block; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 18px 20px; box-shadow: var(--shadow); }
-  a.hl { transition: transform .15s ease, border-color .15s ease; }
-  a.hl:hover { text-decoration: none; transform: translateY(-2px); border-color: color-mix(in srgb, var(--accent) 40%, var(--line)); }
-  .hl .n { font-size: 26px; font-weight: 700; letter-spacing: -.02em; color: var(--accent); }
-  .hl .t { font-size: 14px; color: var(--ink-soft); margin-top: 2px; }
-
-  /* Feature callout */
-  .feature {
-    background: var(--accent-soft);
-    border: 1px solid color-mix(in srgb, var(--accent) 25%, var(--line));
-    border-radius: var(--radius); padding: 26px 28px; margin-bottom: 22px;
-  }
-  .feature .eyebrow { font-size: 12px; text-transform: uppercase; letter-spacing: .1em; font-weight: 700; color: var(--accent); margin: 0 0 8px; }
-  .feature h3 { margin: 0 0 10px; font-size: 20px; letter-spacing: -.01em; }
-  .feature p { margin: 0; color: var(--ink); }
-
-  /* Recognition grid */
-  .rec-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
-  @media (max-width: 640px) { .rec-grid { grid-template-columns: 1fr; } }
-  .rec-item { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 20px 22px; box-shadow: var(--shadow); }
-  .rec-item .rec-label { font-size: 12px; text-transform: uppercase; letter-spacing: .09em; font-weight: 700; color: var(--accent); margin-bottom: 8px; }
-  .rec-item p { margin: 0; font-size: 15px; color: var(--ink); }
-  .rec-item p + p { margin-top: 10px; }
-
-  footer { padding: 40px 0 60px; border-top: 1px solid var(--line); color: var(--ink-soft); font-size: 14px; text-align: center; }
-  footer a { color: var(--ink-soft); }
+  footer { padding: 46px 0 64px; border-top: 1px solid var(--line); }
+  footer .wrap { display: flex; flex-direction: column; gap: 14px; }
+  footer .contact { font-family: var(--serif); font-size: 17px; line-height: 1.6; color: var(--ink); max-width: 60ch; }
+  footer .copy { font-family: var(--mono); font-size: 11px; letter-spacing: .04em; text-transform: uppercase; color: var(--ink-soft); }
 </style>
 </head>
 <body>
@@ -169,11 +160,11 @@
     <span class="brand">Olivia Gough</span>
     <div class="links">
       <a href="#about">About</a>
+      <a href="#work">Work</a>
       <a href="#projects">Projects</a>
-      <a href="#recognition">Recognition</a>
       <a href="#publications">Publications</a>
-      <a href="#resume">CV</a>
-      <a href="#contact">Contact</a>
+      <a href="#recognition">Recognition</a>
+      <a href="#cv">CV</a>
     </div>
   </div>
 </nav>
@@ -181,7 +172,6 @@
 <!-- ============================== HERO ============================== -->
 <header class="hero">
   <div class="wrap hero-grid">
-    <!-- Drop a square photo named headshot.jpg into the repo to show it here. -->
     <img class="avatar" src="headshot.jpg" alt="Portrait of Olivia Gough"
          onerror="this.style.display='none'" />
     <div>
@@ -193,10 +183,10 @@
         recommendations delivered to customers — built on a condensed-matter PhD from Oxford
         and open-source scientific software now in use by research groups worldwide.
       </p>
-      <div class="pills">
-        <a class="pill" href="https://github.com/omgough" target="_blank" rel="noopener">GitHub</a>
-        <a class="pill" href="https://linkedin.com/in/olivia-gough" target="_blank" rel="noopener">LinkedIn</a>
-        <a class="pill" href="https://scholar.google.com/citations?user=wKcCc0IAAAAJ" target="_blank" rel="noopener">Google Scholar</a>
+      <div class="hero-links">
+        <a href="https://github.com/omgough" target="_blank" rel="noopener">GitHub <span class="ar">↗</span></a>
+        <a href="https://linkedin.com/in/olivia-gough" target="_blank" rel="noopener">LinkedIn <span class="ar">↗</span></a>
+        <a href="https://scholar.google.com/citations?user=wKcCc0IAAAAJ" target="_blank" rel="noopener">Google Scholar <span class="ar">↗</span></a>
       </div>
     </div>
   </div>
@@ -205,8 +195,8 @@
 <!-- ============================== ABOUT ============================== -->
 <section id="about">
   <div class="wrap">
-    <h2>About</h2>
-    <p class="lead" style="margin-bottom: 26px;">
+    <h2 class="sec"><span class="num">01</span> — About</h2>
+    <p class="lead">
       I'm a physicist and machine learning engineer working at the intersection of physical
       modelling and production software. My condensed-matter PhD at Oxford focused on the
       microstructure of organic semiconductors characterised by synchrotron X-ray techniques,
@@ -215,67 +205,23 @@
       National Laboratory. I now apply that same physical-modelling, scientific-software, and
       large-dataset expertise to energy-systems products at Electio.
     </p>
-    <div class="highlights">
-      <a class="hl" href="https://scholar.google.com/citations?user=wKcCc0IAAAAJ" target="_blank" rel="noopener"><div class="n">46+</div><div class="t">Citations on Google Scholar</div></a>
-      <a class="hl" href="https://github.com/omgough/giwaxs-analysis" target="_blank" rel="noopener"><div class="n"><span id="ghstars">20</span>★</div><div class="t">GitHub stars on giwaxs-analysis</div></a>
-      <div class="hl"><div class="n">5+</div><div class="t">Peer-reviewed publications</div></div>
+    <div class="stats">
+      <a class="stat" href="https://scholar.google.com/citations?user=wKcCc0IAAAAJ" target="_blank" rel="noopener"><div class="n">46+</div><div class="t">Citations</div></a>
+      <a class="stat" href="https://github.com/omgough/giwaxs-analysis" target="_blank" rel="noopener"><div class="n"><span id="ghstars">20</span>★</div><div class="t">GitHub stars</div></a>
+      <div class="stat"><div class="n">5+</div><div class="t">Publications</div></div>
     </div>
   </div>
 </section>
 
-<!-- ============================== PROJECTS ============================== -->
-<section id="projects">
+<!-- ============================== SELECTED WORK ============================== -->
+<section id="work">
   <div class="wrap">
-    <h2>Selected Work</h2>
+    <h2 class="sec"><span class="num">02</span> — Selected work</h2>
 
-    <div class="card">
-      <h3>giwaxs-analysis</h3>
-      <p class="meta">Author · Open-source Python package</p>
-      <p>
-        Python tools for GIWAXS data processing built on pyFAI and fabio: calibration,
-        1D/sector/cake integration, in situ heatmaps, peak fitting, and Scherrer
-        crystallite-size analysis. Properly engineered and maintained — packaged, tested,
-        documented, MIT-licensed, with a CITATION.cff for citable reuse.
-      </p>
-      <p>
-        <strong>In use by</strong> groups working on in situ GIWAXS, including the Riede
-        group (Oxford), the Heutz group (Imperial), the University of Sheffield, the ESRF, and the
-        Su Materials Lab (Lawrence Berkeley National Laboratory).
-      </p>
-      <div class="tags">
-        <span class="tag">Python</span>
-        <span class="tag">pyFAI</span>
-        <span class="tag">fabio</span>
-        <span class="tag">X-ray scattering</span>
+    <div class="entry">
+      <div class="entry-head">
+        <h3>Energy-production optimisation at Electio</h3>
       </div>
-      <div class="card-links">
-        <a href="https://github.com/omgough/giwaxs-analysis" target="_blank" rel="noopener">Source ↗</a>
-      </div>
-    </div>
-
-    <div class="card">
-      <h3>giwaxs_toolbox</h3>
-      <p class="meta">Contributor / co-author · Official Diamond Light Source toolbox (beamline I07)</p>
-      <p>
-        Python tools for visualising and analysing GIWAXS data collected on Diamond Light
-        Source beamline I07, with interactive widgets for exploring in situ datasets and
-        extracting 1D profiles. A maintained, facility-grade package: src-layout, unit tests,
-        GitHub Actions CI, Sphinx documentation with training videos, and containerised
-        (Docker) deployment on the Diamond filesystem for beamline users.
-      </p>
-      <div class="tags">
-        <span class="tag">Python</span>
-        <span class="tag">CI/CD</span>
-        <span class="tag">Docker</span>
-        <span class="tag">Sphinx</span>
-      </div>
-      <div class="card-links">
-        <a href="https://github.com/DiamondLightSource/giwaxs_toolbox" target="_blank" rel="noopener">Source ↗</a>
-      </div>
-    </div>
-
-    <div class="card">
-      <h3>Energy-production optimisation at Electio</h3>
       <p class="meta">Machine Learning Engineer · 2026 – present</p>
       <p>
         Physics-based models of complex energy-production systems turned into predictive,
@@ -290,15 +236,69 @@
         MLflow for the machine-learning lifecycle, InfluxDB for time-series operating data, and
         AWS with Docker for deployment.
       </p>
-      <div class="tags">
-        <span class="tag">Python</span>
-        <span class="tag">Databricks</span>
-        <span class="tag">Spark</span>
-        <span class="tag">MLflow</span>
-        <span class="tag">InfluxDB</span>
-        <span class="tag">AWS</span>
-        <span class="tag">Docker</span>
+      <p class="stack">Python · Databricks · Spark · MLflow · InfluxDB · AWS · Docker</p>
+    </div>
+
+    <div class="entry">
+      <div class="entry-head">
+        <h3>giwaxs-analysis</h3>
+        <a class="src" href="https://github.com/omgough/giwaxs-analysis" target="_blank" rel="noopener">Source ↗</a>
       </div>
+      <p class="meta">Author · Open-source Python package</p>
+      <p>
+        Python tools for GIWAXS data processing built on pyFAI and fabio: calibration,
+        1D/sector/cake integration, in situ heatmaps, peak fitting, and Scherrer
+        crystallite-size analysis. Properly engineered and maintained — packaged, tested,
+        documented, MIT-licensed, with a CITATION.cff for citable reuse.
+      </p>
+      <p>
+        <strong>In use by</strong> groups working on in situ GIWAXS, including the Riede
+        group (Oxford), the Heutz group (Imperial), the University of Sheffield, the ESRF, and the
+        Su Materials Lab (Lawrence Berkeley National Laboratory).
+      </p>
+      <p class="stack">Python · pyFAI · fabio · X-ray scattering</p>
+    </div>
+
+    <div class="entry">
+      <div class="entry-head">
+        <h3>giwaxs_toolbox</h3>
+        <a class="src" href="https://github.com/DiamondLightSource/giwaxs_toolbox" target="_blank" rel="noopener">Source ↗</a>
+      </div>
+      <p class="meta">Co-author · Diamond Light Source · beamline I07</p>
+      <p>
+        Python tools for visualising and analysing GIWAXS data collected on Diamond Light
+        Source beamline I07, with interactive widgets for exploring in situ datasets and
+        extracting 1D profiles. A maintained, facility-grade package: src-layout, unit tests,
+        GitHub Actions CI, Sphinx documentation with training videos, and containerised
+        (Docker) deployment on the Diamond filesystem for beamline users.
+      </p>
+      <p class="stack">Python · CI/CD · Docker · Sphinx</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== PERSONAL PROJECTS ============================== -->
+<section id="projects">
+  <div class="wrap">
+    <h2 class="sec"><span class="num">03</span> — Personal projects</h2>
+
+    <div class="entry" style="border-top: none; padding-top: 4px;">
+      <div class="entry-head">
+        <h3>pollock</h3>
+        <a class="src" href="https://github.com/omgough/pollock" target="_blank" rel="noopener">Source ↗</a>
+      </div>
+      <p class="meta">Personal project · Python</p>
+      <p>
+        A simulation of the double pendulum — one of the simplest systems that exhibits
+        deterministic chaos. Two arms swing under gravity, integrated from the equations of
+        motion; nudge the starting angle by a hair and the trajectories diverge completely.
+        I let the tip trace its own path, so every run paints a different picture — hence the name.
+      </p>
+      <figure class="figure">
+        <img src="pollock.gif" alt="Animated double-pendulum simulation tracing a chaotic path" loading="lazy" />
+        <figcaption>Double pendulum, traced over time. Each run starts from a slightly different angle and never repeats.</figcaption>
+      </figure>
+      <p class="stack">Python · NumPy · matplotlib</p>
     </div>
   </div>
 </section>
@@ -306,10 +306,7 @@
 <!-- ============================== PUBLICATIONS ============================== -->
 <section id="publications">
   <div class="wrap">
-    <h2>Publications &amp; Talks</h2>
-
-    <!-- EDIT: where a paper has a public DOI/link, wrap the title in
-         <a href="DOI_URL" ...>...</a>. Add citation counts after each if you have them. -->
+    <h2 class="sec"><span class="num">04</span> — Publications &amp; talks</h2>
 
     <p class="pub-group">Peer-reviewed journal articles</p>
     <ol class="pubs">
@@ -364,8 +361,8 @@
 <!-- ============================== RECOGNITION ============================== -->
 <section id="recognition">
   <div class="wrap">
-    <h2>Recognition &amp; Impact</h2>
-    <p class="lead" style="margin-bottom: 26px;">
+    <h2 class="sec"><span class="num">05</span> — Recognition &amp; impact</h2>
+    <p class="lead" style="margin-bottom: 30px;">
       A record of independent recognition: competitive national-facility fellowships, research
       methods and software taken up by other groups, peer-review service, and press
       coverage of work led under my name.
@@ -387,67 +384,65 @@
       </p>
     </div>
 
-    <div class="rec-grid">
-      <div class="rec-item">
-        <div class="rec-label">Awards &amp; fellowships</div>
-        <p>
-          <strong>Advanced Light Source Doctoral Fellowship in Residence</strong> at Lawrence
-          Berkeley National Laboratory — a competitive, full-time residential fellowship at a
-          US&nbsp;Department of Energy national user facility, awarded in <strong>two consecutive
-          years</strong>.
-        </p>
-        <p>
-          Oxford–Wolfson–Marriott Condensed Matter Physics Graduate Scholarship; UKRI doctoral
-          studentship.
-        </p>
-      </div>
+    <div class="rec-row">
+      <div class="rec-label">Awards &amp; fellowships</div>
+      <p>
+        <strong>Advanced Light Source Doctoral Fellowship in Residence</strong> at Lawrence
+        Berkeley National Laboratory — a competitive, full-time residential fellowship at a
+        US&nbsp;Department of Energy national user facility, awarded in <strong>two consecutive
+        years</strong>.
+      </p>
+      <p>
+        Oxford–Wolfson–Marriott Condensed Matter Physics Graduate Scholarship; UKRI doctoral
+        studentship.
+      </p>
+    </div>
 
-      <div class="rec-item">
-        <div class="rec-label">Peer review &amp; invited talks</div>
-        <p>
-          Invited <strong>peer reviewer for <em>AIP Advances</em></strong> (AIP Publishing),
-          assessing others' manuscripts for publication.
-        </p>
-        <p>
-          Conference presentations including two talks at <strong>MRS Spring 2025</strong>
-          (Seattle) and <strong>SNI22</strong> (Berlin, 2022).
-        </p>
-      </div>
+    <div class="rec-row">
+      <div class="rec-label">Peer review &amp; invited talks</div>
+      <p>
+        Invited <strong>peer reviewer for <em>AIP Advances</em></strong> (AIP Publishing),
+        assessing others' manuscripts for publication.
+      </p>
+      <p>
+        Conference presentations including two talks at <strong>MRS Spring 2025</strong>
+        (Seattle) and <strong>SNI22</strong> (Berlin, 2022).
+      </p>
+    </div>
 
-      <div class="rec-item">
-        <div class="rec-label">Open-source software in use</div>
-        <p>
-          <strong>giwaxs-analysis</strong> is used by the Riede group (Oxford),
-          Heutz group (Imperial), University of Sheffield, the ESRF, and the Su Materials Lab
-          (LBNL).
-        </p>
-        <p>
-          I also co-author the official Diamond Light Source <strong>giwaxs_toolbox</strong> for
-          beamline I07 — a containerised package deployed for facility users.
-        </p>
-      </div>
+    <div class="rec-row">
+      <div class="rec-label">Open-source software in use</div>
+      <p>
+        <strong>giwaxs-analysis</strong> is used by the Riede group (Oxford),
+        Heutz group (Imperial), University of Sheffield, the ESRF, and the Su Materials Lab
+        (LBNL).
+      </p>
+      <p>
+        I also co-author the official Diamond Light Source <strong>giwaxs_toolbox</strong> for
+        beamline I07 — a containerised package deployed for facility users.
+      </p>
+    </div>
 
-      <div class="rec-item">
-        <div class="rec-label">Published &amp; cited</div>
-        <p>
-          <strong>46+ citations</strong> across 5+ peer-reviewed papers in venues including
-          <em>Angewandte Chemie</em>, <em>Advanced Functional Materials</em> and
-          <em>Organic Electronics</em>, with first-author work in organic photovoltaics.
-        </p>
-        <p>
-          My first-author <em>Organic Electronics</em> paper was independently highlighted by
-          instrument maker <strong>J.A. Woollam Co.</strong> as research I led.
-        </p>
-      </div>
+    <div class="rec-row">
+      <div class="rec-label">Published &amp; cited</div>
+      <p>
+        <strong>46+ citations</strong> across 5+ peer-reviewed papers in venues including
+        <em>Angewandte Chemie</em>, <em>Advanced Functional Materials</em> and
+        <em>Organic Electronics</em>, with first-author work in organic photovoltaics.
+      </p>
+      <p>
+        My first-author <em>Organic Electronics</em> paper was independently highlighted by
+        instrument maker <strong>J.A. Woollam Co.</strong> as research I led.
+      </p>
     </div>
   </div>
 </section>
 
-<!-- ============================== RESUME ============================== -->
-<section id="resume">
+<!-- ============================== CV ============================== -->
+<section id="cv">
   <div class="wrap">
-    <h2>Curriculum Vitae</h2>
-    <p class="lead" style="margin-bottom:22px;">
+    <h2 class="sec"><span class="num">06</span> — Curriculum vitae</h2>
+    <p class="lead" style="margin-bottom: 24px;">
       PhD in Condensed Matter Physics, University of Oxford; MRes Plastic Electronics
       (Distinction), Imperial College London; BSc Physics (First Class Honours), Queen Mary
       University of London. The full CV details beamtimes, software, teaching and the awards
@@ -457,23 +452,16 @@
   </div>
 </section>
 
-<!-- ============================== CONTACT ============================== -->
-<section id="contact">
+<footer>
   <div class="wrap">
-    <h2>Contact</h2>
-    <p class="lead">
+    <p class="contact">
       The best way to reach me is on
       <a href="https://linkedin.com/in/olivia-gough" target="_blank" rel="noopener">LinkedIn</a>.
       My code is on <a href="https://github.com/omgough" target="_blank" rel="noopener">GitHub</a>
       and my publications on
       <a href="https://scholar.google.com/citations?user=wKcCc0IAAAAJ" target="_blank" rel="noopener">Google Scholar</a>.
     </p>
-  </div>
-</section>
-
-<footer>
-  <div class="wrap">
-    © <span id="year"></span> Olivia Gough.
+    <p class="copy">© <span id="year"></span> Olivia Gough</p>
   </div>
 </footer>
 
