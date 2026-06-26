@@ -134,9 +134,29 @@
   /* Highlight strip */
   .highlights { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 8px; }
   @media (max-width: 640px) { .highlights { grid-template-columns: 1fr; } }
-  .hl { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 18px 20px; box-shadow: var(--shadow); }
+  .hl { display: block; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 18px 20px; box-shadow: var(--shadow); }
+  a.hl { transition: transform .15s ease, border-color .15s ease; }
+  a.hl:hover { text-decoration: none; transform: translateY(-2px); border-color: color-mix(in srgb, var(--accent) 40%, var(--line)); }
   .hl .n { font-size: 26px; font-weight: 700; letter-spacing: -.02em; color: var(--accent); }
   .hl .t { font-size: 14px; color: var(--ink-soft); margin-top: 2px; }
+
+  /* Feature callout */
+  .feature {
+    background: var(--accent-soft);
+    border: 1px solid color-mix(in srgb, var(--accent) 25%, var(--line));
+    border-radius: var(--radius); padding: 26px 28px; margin-bottom: 22px;
+  }
+  .feature .eyebrow { font-size: 12px; text-transform: uppercase; letter-spacing: .1em; font-weight: 700; color: var(--accent); margin: 0 0 8px; }
+  .feature h3 { margin: 0 0 10px; font-size: 20px; letter-spacing: -.01em; }
+  .feature p { margin: 0; color: var(--ink); }
+
+  /* Recognition grid */
+  .rec-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  @media (max-width: 640px) { .rec-grid { grid-template-columns: 1fr; } }
+  .rec-item { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 20px 22px; box-shadow: var(--shadow); }
+  .rec-item .rec-label { font-size: 12px; text-transform: uppercase; letter-spacing: .09em; font-weight: 700; color: var(--accent); margin-bottom: 8px; }
+  .rec-item p { margin: 0; font-size: 15px; color: var(--ink); }
+  .rec-item p + p { margin-top: 10px; }
 
   footer { padding: 40px 0 60px; border-top: 1px solid var(--line); color: var(--ink-soft); font-size: 14px; text-align: center; }
   footer a { color: var(--ink-soft); }
@@ -150,6 +170,7 @@
     <div class="links">
       <a href="#about">About</a>
       <a href="#projects">Projects</a>
+      <a href="#recognition">Recognition</a>
       <a href="#publications">Publications</a>
       <a href="#resume">CV</a>
       <a href="#contact">Contact</a>
@@ -170,13 +191,12 @@
         I turn complex physical systems into predictive, decision-support tools in production
         code. At Electio I model energy-production systems and own the optimisation
         recommendations delivered to customers — built on a condensed-matter PhD from Oxford
-        and open-source scientific software now used as standard by research groups worldwide.
+        and open-source scientific software now in use by research groups worldwide.
       </p>
       <div class="pills">
         <a class="pill" href="https://github.com/omgough" target="_blank" rel="noopener">GitHub</a>
         <a class="pill" href="https://linkedin.com/in/olivia-gough" target="_blank" rel="noopener">LinkedIn</a>
-        <!-- EDIT: paste your exact Google Scholar profile URL below -->
-        <a class="pill" href="https://scholar.google.com/" target="_blank" rel="noopener">Google Scholar</a>
+        <a class="pill" href="https://scholar.google.com/citations?user=wKcCc0IAAAAJ" target="_blank" rel="noopener">Google Scholar</a>
       </div>
     </div>
   </div>
@@ -190,15 +210,15 @@
       I'm a physicist and machine learning engineer working at the intersection of physical
       modelling and production software. My condensed-matter PhD at Oxford focused on the
       microstructure of organic semiconductors characterised by synchrotron X-ray techniques,
-      where I led large-facility beamtimes and authored open-source research software adopted
-      as standard by groups at Oxford, Imperial, Sheffield, the ESRF, and Lawrence Berkeley
+      where I led large-facility beamtimes and authored open-source research software now in
+      use by groups at Oxford, Imperial, Sheffield, the ESRF, and Lawrence Berkeley
       National Laboratory. I now apply that same physical-modelling, scientific-software, and
       large-dataset expertise to energy-systems products at Electio.
     </p>
     <div class="highlights">
-      <div class="hl"><div class="n">8/8</div><div class="t">Beamtime proposals accepted as investigative lead</div></div>
+      <a class="hl" href="https://scholar.google.com/citations?user=wKcCc0IAAAAJ" target="_blank" rel="noopener"><div class="n">46+</div><div class="t">Citations on Google Scholar</div></a>
+      <a class="hl" href="https://github.com/omgough/giwaxs-analysis" target="_blank" rel="noopener"><div class="n"><span id="ghstars">20</span>★</div><div class="t">GitHub stars on giwaxs-analysis</div></a>
       <div class="hl"><div class="n">5+</div><div class="t">Peer-reviewed publications</div></div>
-      <div class="hl"><div class="n">6</div><div class="t">Research groups &amp; facilities using my software</div></div>
     </div>
   </div>
 </section>
@@ -218,8 +238,8 @@
         documented, MIT-licensed, with a CITATION.cff for citable reuse.
       </p>
       <p>
-        <strong>Adopted as standard</strong> by groups working on in situ GIWAXS: the Riede
-        group (Oxford), Heutz group (Imperial), University of Sheffield, the ESRF, and the
+        <strong>In use by</strong> groups working on in situ GIWAXS, including the Riede
+        group (Oxford), the Heutz group (Imperial), the University of Sheffield, the ESRF, and the
         Su Materials Lab (Lawrence Berkeley National Laboratory).
       </p>
       <div class="tags">
@@ -265,11 +285,19 @@
         recommendations delivered to customers (e.g. gas-injection strategy), derived from
         historical operating data and model output.
       </p>
+      <p>
+        Built in Python and shipped to production: Databricks and Spark for large-scale data,
+        MLflow for the machine-learning lifecycle, InfluxDB for time-series operating data, and
+        AWS with Docker for deployment.
+      </p>
       <div class="tags">
-        <span class="tag">Physical modelling</span>
-        <span class="tag">Machine learning</span>
-        <span class="tag">Production code</span>
-        <span class="tag">Data pipelines</span>
+        <span class="tag">Python</span>
+        <span class="tag">Databricks</span>
+        <span class="tag">Spark</span>
+        <span class="tag">MLflow</span>
+        <span class="tag">InfluxDB</span>
+        <span class="tag">AWS</span>
+        <span class="tag">Docker</span>
       </div>
     </div>
   </div>
@@ -333,15 +361,97 @@
   </div>
 </section>
 
+<!-- ============================== RECOGNITION ============================== -->
+<section id="recognition">
+  <div class="wrap">
+    <h2>Recognition &amp; Impact</h2>
+    <p class="lead" style="margin-bottom: 26px;">
+      A record of independent recognition: competitive national-facility fellowships, research
+      methods and software taken up by other groups, peer-review service, and press
+      coverage of work led under my name.
+    </p>
+
+    <div class="feature">
+      <p class="eyebrow">Research infrastructure</p>
+      <h3>An X-ray method awarded standing beamtime at the UK's national synchrotron</h3>
+      <p>
+        The in&nbsp;situ X-ray scattering technique I led was awarded <strong>Block Allocation
+        Group (BAG) status</strong> at Diamond Light Source — a guaranteed recurring block of
+        beamtime (roughly two weeks every operating cycle, over several years), granted only to
+        methods a facility judges mature and broadly valuable enough for the wider research
+        community to use. As lead investigator and BAG superuser I ran the MINERVA vacuum chamber
+        and the scattering experiment simultaneously, trained incoming users, and authored the
+        software and standard operating procedures that opened the technique to other teams —
+        now used by groups at Imperial, TU&nbsp;Dresden, Sheffield and Florence.
+        <a href="https://www.wolfson.ox.ac.uk/news/wolfson-dphil-and-team-awarded-block-allocation-group-status-for-synchrotron-experiment/" target="_blank" rel="noopener">Read the announcement ↗</a>
+      </p>
+    </div>
+
+    <div class="rec-grid">
+      <div class="rec-item">
+        <div class="rec-label">Awards &amp; fellowships</div>
+        <p>
+          <strong>Advanced Light Source Doctoral Fellowship in Residence</strong> at Lawrence
+          Berkeley National Laboratory — a competitive, full-time residential fellowship at a
+          US&nbsp;Department of Energy national user facility, awarded in <strong>two consecutive
+          years</strong>.
+        </p>
+        <p>
+          Oxford–Wolfson–Marriott Condensed Matter Physics Graduate Scholarship; UKRI doctoral
+          studentship.
+        </p>
+      </div>
+
+      <div class="rec-item">
+        <div class="rec-label">Peer review &amp; invited talks</div>
+        <p>
+          Invited <strong>peer reviewer for <em>AIP Advances</em></strong> (AIP Publishing),
+          assessing others' manuscripts for publication.
+        </p>
+        <p>
+          Conference presentations including two talks at <strong>MRS Spring 2025</strong>
+          (Seattle) and <strong>SNI22</strong> (Berlin, 2022).
+        </p>
+      </div>
+
+      <div class="rec-item">
+        <div class="rec-label">Open-source software in use</div>
+        <p>
+          <strong>giwaxs-analysis</strong> is used by the Riede group (Oxford),
+          Heutz group (Imperial), University of Sheffield, the ESRF, and the Su Materials Lab
+          (LBNL).
+        </p>
+        <p>
+          I also co-author the official Diamond Light Source <strong>giwaxs_toolbox</strong> for
+          beamline I07 — a containerised package deployed for facility users.
+        </p>
+      </div>
+
+      <div class="rec-item">
+        <div class="rec-label">Published &amp; cited</div>
+        <p>
+          <strong>46+ citations</strong> across 5+ peer-reviewed papers in venues including
+          <em>Angewandte Chemie</em>, <em>Advanced Functional Materials</em> and
+          <em>Organic Electronics</em>, with first-author work in organic photovoltaics.
+        </p>
+        <p>
+          My first-author <em>Organic Electronics</em> paper was independently highlighted by
+          instrument maker <strong>J.A. Woollam Co.</strong> as research I led.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ============================== RESUME ============================== -->
 <section id="resume">
   <div class="wrap">
-    <h2>CV &amp; Recognition</h2>
+    <h2>Curriculum Vitae</h2>
     <p class="lead" style="margin-bottom:22px;">
-      Selected highlights: Advanced Light Source Doctoral Fellowship in Residence (LBNL),
-      awarded two consecutive years; Oxford–Wolfson–Marriott Condensed Matter Physics Graduate
-      Scholarship; UKRI doctoral studentship. PhD, University of Oxford; MRes (Distinction),
-      Imperial College London; BSc Physics (First Class Honours), Queen Mary University of London.
+      PhD in Condensed Matter Physics, University of Oxford; MRes Plastic Electronics
+      (Distinction), Imperial College London; BSc Physics (First Class Honours), Queen Mary
+      University of London. The full CV details beamtimes, software, teaching and the awards
+      above.
     </p>
     <a class="cta" href="resume.pdf" target="_blank" rel="noopener">Download full CV (PDF) ↓</a>
   </div>
@@ -356,7 +466,7 @@
       <a href="https://linkedin.com/in/olivia-gough" target="_blank" rel="noopener">LinkedIn</a>.
       My code is on <a href="https://github.com/omgough" target="_blank" rel="noopener">GitHub</a>
       and my publications on
-      <a href="https://scholar.google.com/" target="_blank" rel="noopener">Google Scholar</a>.
+      <a href="https://scholar.google.com/citations?user=wKcCc0IAAAAJ" target="_blank" rel="noopener">Google Scholar</a>.
     </p>
   </div>
 </section>
@@ -369,6 +479,16 @@
 
 <script>
   document.getElementById("year").textContent = new Date().getFullYear();
+
+  // Live GitHub star count for giwaxs-analysis (falls back to the hardcoded number).
+  fetch("https://api.github.com/repos/omgough/giwaxs-analysis")
+    .then(function (r) { return r.ok ? r.json() : Promise.reject(); })
+    .then(function (d) {
+      if (d && typeof d.stargazers_count === "number") {
+        document.getElementById("ghstars").textContent = d.stargazers_count;
+      }
+    })
+    .catch(function () { /* keep fallback */ });
 </script>
 </body>
 </html>
