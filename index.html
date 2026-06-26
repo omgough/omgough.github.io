@@ -287,16 +287,22 @@
         <h3>pollock</h3>
         <a class="src" href="https://github.com/omgough/pollock" target="_blank" rel="noopener">Source ↗</a>
       </div>
-      <p class="meta">Personal project · Python</p>
+      <p class="meta">Personal project · Creative coding · Python</p>
       <p>
-        A simulation of the double pendulum — one of the simplest systems that exhibits
-        deterministic chaos. Two arms swing under gravity, integrated from the equations of
-        motion; nudge the starting angle by a hair and the trajectories diverge completely.
-        I let the tip trace its own path, so every run paints a different picture — hence the name.
+        A creative-coding experiment at the meeting point of art and science. Inspired by
+        Richard Taylor's work on the fractal signature of Jackson Pollock's drip paintings,
+        I built a configurable pendulum simulation — choose the number of arms, the colours,
+        the starting points and the random seed — that scatters its trajectories across a
+        canvas to emulate a Pollock, then measures the fractal dimension of the result.
+      </p>
+      <p>
+        With several arms swinging under gravity, the motion is deeply chaotic: nudge a
+        starting angle by a hair and the path diverges completely, so no two runs paint the
+        same picture — hence the name.
       </p>
       <figure class="figure">
-        <img src="pollock.gif" alt="Animated double-pendulum simulation tracing a chaotic path" loading="lazy" />
-        <figcaption>Double pendulum, traced over time. Each run starts from a slightly different angle and never repeats.</figcaption>
+        <img src="pollock.gif" alt="Animated multi-arm pendulum simulation tracing a chaotic path across a canvas" loading="lazy" />
+        <figcaption>A pendulum traces its path; many of these, scattered across a canvas, make a simulated Pollock.</figcaption>
       </figure>
       <p class="stack">Python · NumPy · matplotlib</p>
     </div>
