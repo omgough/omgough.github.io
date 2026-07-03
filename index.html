@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Olivia Gough — Physicist &amp; Machine Learning Engineer</title>
-<meta name="description" content="Olivia Gough — physicist and machine learning engineer. Physics-based modelling for energy systems, open-source scientific software, and condensed-matter research." />
+<meta name="description" content="Olivia Gough, physicist and machine learning engineer. Physics-based modelling for energy systems, open-source scientific software, and condensed-matter research." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Newsreader:ital,opsz@0,6..72;1,6..72&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
@@ -117,6 +117,16 @@
   .gallery a { display: block; aspect-ratio: 1 / 1; overflow: hidden; border: 1px solid var(--line); }
   .gallery img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .35s ease; }
   .gallery a:hover img { transform: scale(1.05); }
+  /* Two-column square grid variant */
+  .gallery.two { grid-template-columns: repeat(2, 1fr); }
+
+  /* Display equations */
+  .eqn {
+    margin: 16px 0; padding: 14px 18px;
+    border-left: 2px solid var(--accent); background: var(--accent-soft);
+    overflow-x: auto; font-size: 15px;
+  }
+  .eqn mjx-container { margin: 4px 0 !important; }
 
   /* Publications */
   ol.pubs { list-style: none; counter-reset: pub; padding: 0; margin: 0; }
@@ -187,7 +197,7 @@
       <p class="intro">
         I turn complex physical systems into predictive, decision-support tools in production
         code. At Electio I model energy-production systems and own the optimisation
-        recommendations delivered to customers — built on a condensed-matter PhD from Oxford
+        recommendations delivered to customers, built on a condensed-matter PhD from Oxford
         and open-source scientific software now in use by research groups worldwide.
       </p>
       <div class="hero-links">
@@ -255,7 +265,7 @@
       <p>
         Python tools for GIWAXS data processing built on pyFAI and fabio: calibration,
         1D/sector/cake integration, in situ heatmaps, peak fitting, and Scherrer
-        crystallite-size analysis. Properly engineered and maintained — packaged, tested,
+        crystallite-size analysis. Properly engineered and maintained, packaged, tested,
         documented, MIT-licensed, with a CITATION.cff for citable reuse.
       </p>
       <p>
@@ -310,6 +320,36 @@
         <figcaption>A pendulum traces its path; many of these, scattered across a canvas, make a simulated Pollock.</figcaption>
       </figure>
       <p class="stack">Python · NumPy · matplotlib</p>
+    </div>
+
+    <div class="entry">
+      <div class="entry-head">
+        <h3>attractors</h3>
+        <a class="src" href="https://github.com/omgough/experimental" target="_blank" rel="noopener">Source ↗</a>
+      </div>
+      <p class="meta">Personal project · Generative art · Python</p>
+      <p>
+        An attractor is a set of states toward which a system tends to evolve. This project is a
+        Clifford attractor, inspired by
+        <a href="https://profconradi.github.io/" target="_blank" rel="noopener">Simone Conradi</a>:
+      </p>
+      <div class="eqn">
+        \[ x_{n+1} = \sin(a\,y_n) + c\cos(a\,x_n) \]
+        \[ y_{n+1} = \sin(b\,x_n) + d\cos(b\,y_n) \]
+      </div>
+      <p>
+        I built it in <a href="https://marimo.io/" target="_blank" rel="noopener">marimo</a>, an
+        interactive notebook, with \(a\), \(b\), \(c\) and \(d\) wired to sliders, and the attractor
+        re-renders in real time as you drag them. Each image below is a frame captured at a
+        different set of values.
+      </p>
+      <div class="gallery two">
+        <a href="attractors/attractor-1.jpg" target="_blank" rel="noopener"><img src="attractors/attractor-1.jpg" alt="Blue Clifford-attractor density plot forming interlocking toroidal loops" loading="lazy" /></a>
+        <a href="attractors/attractor-2.jpg" target="_blank" rel="noopener"><img src="attractors/attractor-2.jpg" alt="Blue Clifford-attractor density plot with nested elliptical bands" loading="lazy" /></a>
+        <a href="attractors/attractor-3.jpg" target="_blank" rel="noopener"><img src="attractors/attractor-3.jpg" alt="Blue Clifford-attractor density plot with sweeping wing-like curves" loading="lazy" /></a>
+        <a href="attractors/attractor-4.jpg" target="_blank" rel="noopener"><img src="attractors/attractor-4.jpg" alt="Blue Clifford-attractor density plot with layered flame-like curves" loading="lazy" /></a>
+      </div>
+      <p class="stack">Python · marimo · NumPy · matplotlib</p>
     </div>
 
     <div class="entry">
@@ -373,10 +413,6 @@
     <p class="pub-group">Conference presentations</p>
     <ol class="pubs">
       <li>
-        <span class="pub-title">In situ growth observations of vacuum thermally evaporated films with ellagic acid as a templating layer for organic photovoltaics.</span>
-        <span class="pub-meta"> <strong>Gough, O.</strong>, Trinkaus, K., Kaienburg, P., Su, G. &amp; Riede, M. <em>MRS Spring</em> (2025).</span>
-      </li>
-      <li>
         <span class="pub-title">Tuning the microstructure of organic photovoltaics using rylene-dye-derivative templating layers with X-ray characterisation techniques.</span>
         <span class="pub-meta"> <strong>Gough, O.</strong>, Trinkaus, K., Kaienburg, P., Su, G. &amp; Riede, M. <em>MRS Spring</em> (2025).</span>
       </li>
@@ -403,12 +439,12 @@
       <h3>An X-ray method awarded standing beamtime at the UK's national synchrotron</h3>
       <p>
         The in&nbsp;situ X-ray scattering technique I led was awarded <strong>Block Allocation
-        Group (BAG) status</strong> at Diamond Light Source — a guaranteed recurring block of
+        Group (BAG) status</strong> at Diamond Light Source, a guaranteed recurring block of
         beamtime (roughly two weeks every operating cycle, over several years), granted only to
         methods a facility judges mature and broadly valuable enough for the wider research
         community to use. As lead investigator and BAG superuser I ran the MINERVA vacuum chamber
         and the scattering experiment simultaneously, trained incoming users, and authored the
-        software and standard operating procedures that opened the technique to other teams —
+        software and standard operating procedures that opened the technique to other teams,
         now used by groups at Imperial, TU&nbsp;Dresden, Sheffield and Florence.
         <a href="https://www.wolfson.ox.ac.uk/news/wolfson-dphil-and-team-awarded-block-allocation-group-status-for-synchrotron-experiment/" target="_blank" rel="noopener">Read the announcement ↗</a>
       </p>
@@ -418,12 +454,12 @@
       <div class="rec-label">Awards &amp; fellowships</div>
       <p>
         <strong>Advanced Light Source Doctoral Fellowship in Residence</strong> at Lawrence
-        Berkeley National Laboratory — a competitive, full-time residential fellowship at a
+        Berkeley National Laboratory, a competitive, full-time residential fellowship at a
         US&nbsp;Department of Energy national user facility, awarded in <strong>two consecutive
         years</strong>.
       </p>
       <p>
-        Oxford–Wolfson–Marriott Condensed Matter Physics Graduate Scholarship; UKRI doctoral
+        Oxford-Wolfson-Marriott Condensed Matter Physics Graduate Scholarship; UKRI doctoral
         studentship.
       </p>
     </div>
@@ -435,7 +471,7 @@
         assessing others' manuscripts for publication.
       </p>
       <p>
-        Conference presentations including two talks at <strong>MRS Spring 2025</strong>
+        Conference presentations at <strong>MRS Spring 2025</strong>
         (Seattle) and <strong>SNI22</strong> (Berlin, 2022).
       </p>
     </div>
@@ -449,7 +485,7 @@
       </p>
       <p>
         I also co-author the official Diamond Light Source <strong>giwaxs_toolbox</strong> for
-        beamline I07 — a containerised package deployed for facility users.
+        beamline I07, a containerised package deployed for facility users.
       </p>
     </div>
 
@@ -494,6 +530,15 @@
     <p class="copy">© <span id="year"></span> Olivia Gough</p>
   </div>
 </footer>
+
+<!-- MathJax for the attractor equations -->
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [["\\(", "\\)"]], displayMath: [["\\[", "\\]"]] },
+    options: { skipHtmlTags: ["script", "noscript", "style", "textarea", "pre"] }
+  };
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" async></script>
 
 <script>
   document.getElementById("year").textContent = new Date().getFullYear();

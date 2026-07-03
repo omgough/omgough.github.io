@@ -28,6 +28,11 @@ What to fill in:
 
 Tip: open `index.html` by double-clicking it to preview in your browser as you edit.
 
+### Writing style
+
+- **No em dashes (—) or en dashes (–) in prose.** Use a comma, or split into two
+  sentences. (Date/number ranges like `2024–2025` are fine.)
+
 ---
 
 ## Step 2 — Put it on GitHub
